@@ -1,0 +1,14 @@
+{% extends "contact/layout.html" %}
+
+{% block body %}
+    <h1>Create New Contact</h1>
+    <form action="{% url 'save_contact' %}" method="POST">
+        {% csrf_token %}
+        <label for="text">Enter name: </label>
+        <input type="text" name="name" value="{{ name }}"><br><br>
+        <label for="number">Enter Phone Number: </label>
+        <input type="number" name="phnumber" value="{{ phnumber }}"><br><br>
+        <input type="submit" value="Create">
+    </form>
+    <a href="{% url 'index' %}">Home</a>
+{% endblock %}

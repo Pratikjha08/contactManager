@@ -1,0 +1,14 @@
+{% extends "contact/layout.html" %}
+
+{% block body %}
+    <h1>Contacts</h1>
+    <ul>
+        {% for key,value in sorted_contacts.items %}
+        <li>{{ key }} : {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Create New Contact">
+    </form>
+{% endblock %}
